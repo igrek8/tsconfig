@@ -1,0 +1,13 @@
+name: flow-pr
+
+on: pull_request
+
+jobs:
+  format:
+    uses: igrek8/github-workflows/.github/workflows/job-format.yml@main
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: npm run test
